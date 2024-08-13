@@ -1,0 +1,25 @@
+{
+  "name": "megaproject",
+  "version": "1.0.0",
+  "description": "full stack web application using mern stack",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "keywords": [
+    "javascript",
+    "mern",
+    "stack",
+    "backend"
+  ],
+  "author": "Krishnendu Roy",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4",
+    "prettier": "^3.3.3"
+  }
+}
