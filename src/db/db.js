@@ -9,7 +9,7 @@ export const connectDB= async ()=>{
         console.log(`DB connected at: ${DB_instance.connection.host}`);
     }
     catch(error){
-        console.log(error.message);
+        console.log(`Connection error FAILED! ${error.message}`);
         process.exit(1);
     }
 }
