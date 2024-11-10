@@ -12,6 +12,8 @@ Tagline: *Bridging Digital Experiences*
 - [Technologies Used](#technologies-used)
 - [Installation](#installation)
 - [Usage](#usage)
+- [Detailed Code Architecture and Advanced Implementations](#detailed-code-architecture-and-advanced-implementations)
+- [Key Advanced Architectural Patterns](#key-advanced-architectural-patterns)
 - [API Endpoints](#api-endpoints)
 - [Contributing](#contributing)
 - [License](#license)
