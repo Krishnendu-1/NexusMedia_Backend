@@ -12,4 +12,4 @@ export const connectDB= async ()=>{
         console.log(`Connection error FAILED! ${error.message}`);
         process.exit(1);
     }
-}
+} 

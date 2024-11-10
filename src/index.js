@@ -1,24 +1,19 @@
-import mongoose from "mongoose";
 import { app } from "./app.js";
 import { config } from "dotenv";//if .env placed in root folder(in this case) then only env varialbles can be accssed through loading "config()" this
 //if not then --> import dotenv from 'dotenv'
 //dotenv.config({path:'./ENV/env'})-->if "env" file is in another folder, then its necessary
-import { DB_name } from "./constant.js";
 import { connectDB } from "./db/db.js";
 
-config();//load is very important
-connectDB()
-.then(()=>{
-    app.on((err)=>{
-        console.log(`FAILED: ${err}`);
-        throw err;
-
+config();//load is very important form .env file
+connectDB().then(()=>{
+    app.on('error',(error)=>{
+        console.log(`FAILED: ${error}`);
+        throw error;
     })
-    app.listen(process.env.PORT || 3000,()=>{
-        console.log(`host:${process.env.PORT}`)
+    app.listen(process.env.PORT,()=>{
+        console.log(`http://localhost:${process.env.PORT || 3000}`)
     })
-})
-.catch((error)=>{
+}).catch((error)=>{
     console.log("error",error)
 })
 
