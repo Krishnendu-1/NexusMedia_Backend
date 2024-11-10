@@ -168,35 +168,35 @@ The server will be running on http://localhost:3000 (or the port specified in yo
   - Logs out the user and invalidates the refresh token.
     
 **Refresh Access Token**
-- POST /api/users/refreshAccessToken
+- POST `/api/users/refreshAccessToken`
   - Refreshes the access token using the refresh token.
     
 **Update Password**
-- POST /api/users/passwordUpdate
+- POST `/api/users/passwordUpdate`
   - Updates the user's password (authenticated users only).
     
 **Get Current User**
-- GET /api/users/cuurentUser 
+- GET `/api/users/cuurentUser`
   - Retrieves the current user's profile (authenticated users only).
     
 **Update User Details**
-- PATCH /api/users/detailsUpdate
+- PATCH `/api/users/detailsUpdate`
   - Updates user details like fullname and email (authenticated users only).
     
 **Update Avatar**
-- PATCH /api/users/avatarUpdate
+- PATCH `/api/users/avatarUpdate`
   - Updates the user's avatar (authenticated users only).
     
 **Update Cover Photo**
-- PATCH /api/users/coverphotoUpdate
+- PATCH `/api/users/coverphotoUpdate`
   - Updates the user's cover photo (authenticated users only).
     
 **Get User Subscription Details**
-- GET /api/users/c/:username
+- GET `/api/users/c/:username`
   - Retrieves subscription details for a given user.
     
 **Get User Watch History**
-- GET /api/users/history
+- GET `/api/users/history`
   - Retrieves the watch history for the authenticated user.
     
 ## Contributing
