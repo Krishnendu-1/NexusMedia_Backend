@@ -1,5 +1,5 @@
 import mongoose, { Schema } from "mongoose";
-import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2";
+import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"; //this helps in aggregate pipeline writing and helps to show data in multiple data
 
 const videoschema=new Schema({
     videofile:{

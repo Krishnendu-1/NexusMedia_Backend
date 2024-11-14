@@ -14,7 +14,7 @@
     "backend"
   ],
   "author": "Krishnendu Roy",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.1.1",
     "cloudinary": "^2.4.0",
