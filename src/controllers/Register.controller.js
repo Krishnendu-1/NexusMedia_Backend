@@ -1,12 +1,14 @@
+//* ⭐⭐⭐This controlloer is for "User" only. All user related controllers are written and exported rather making individual controllers⭐⭐⭐⭐⭐
 import { ApiErrors } from "../utils/ApiError.js";
 import { userdetail } from "../models/user.model.js";
-import { uploadToCloudinary } from "../cloudnary/Cloudnary.js";
+import { uploadImageToCloudinary } from "../cloudnary/Cloudnary.js";
 import { ApiResponse } from "../utils/Apiresponse.js";
 import { config } from "dotenv";
 import jwt from 'jsonwebtoken'
-import mongoose, { mongo } from "mongoose";
+import mongoose from "mongoose";
 
 config();
+
 const generateAccessAndRefreshToken = async(userID)=>{
    
    try{
@@ -26,19 +28,7 @@ const generateAccessAndRefreshToken = async(userID)=>{
 
 }
 
-//**⭐very complex async function⭐ */
-/*import { asyncHandler } from "../utils/asyncHandler.js";
 
-const registerUser=asyncHandler( async (req,res)=>{ //*"asyncHandler(async()=>{})" it takes function and implement "promises"
-    console.log('Request received:', req.body);
-    res.status(200).json({
-        message: "ok"
-    })
-})
-
-export default registerUser;*/
-
-//**very easy async function */
 const registerUser = async (req, res) => {
 
     //*ONLY FOR TESTING PURPOSES */
@@ -55,7 +45,7 @@ const registerUser = async (req, res) => {
     }*/
 
 
-    //*⭐⭐<--LOGIC BUILDING Algorith-->⭐⭐*/
+    //*⭐⭐<--LOGIC BUILDING Algorithm-->⭐⭐*/
     /*
     1. GET USER DATA FROM FRONTEND
     2. VALIDATION-NOT EMPTY
@@ -95,8 +85,9 @@ const registerUser = async (req, res) => {
     }
 
     console.dir(req.files);
+    
     //*req.files... here "files" is used since here we are uploading avatar & coverimage through single function. If not uploading two files simultaneously, then use "req.file.path"-->file path will be accecpted to multer for that one file.
-    const avatarPath= req.files?.avatar[0]?.path;//using optional "?" to access files "path" property under [0]th object index(eg, avatar:[{0th object}]) of "avatar" array, from "Multer" as it stores in ".photo/temp" first before sending it to cloudinary
+    const avatarPath= req.files?.avatar[0]?.path;//using optional "?" to access files "path" property under [0]th object index(eg, avatar:[{0th object}]) of "avatar" array is the local path is stored, from "Multer" as it stores in ".photo/temp" first before sending it to cloudinary
     
     //*it is showing undefined (reading '0') error if cover image is not selected
     //const coverImagePath=req.files?.coverImage[0]?.path;
@@ -111,8 +102,8 @@ const registerUser = async (req, res) => {
         throw new ApiErrors(400,"Avatar needed");
     }
 
-    const avatar=await uploadToCloudinary(avatarPath);
-    const coverphoto=await uploadToCloudinary(coverImagePath);
+    const avatar=await uploadImageToCloudinary(avatarPath);
+    const coverphoto=await uploadImageToCloudinary(coverImagePath);
 
     if(!avatar) throw new ApiErrors(400,"avatar needed");
 
@@ -352,7 +343,7 @@ const AvatarUpdate=async (req,res)=>{
         throw new ApiErrors(400,"file path issue");
     }
 
-    const uploadLocalPath= await uploadToCloudinary(avatarLocal);
+    const uploadLocalPath= await uploadImageToCloudinary(avatarLocal);
     if(!uploadLocalPath.url){
         throw new ApiErrors(400,"file upload issue");
     }
@@ -388,7 +379,7 @@ const CoverimageUpdate=async (req,res)=>{
     }
 
     //it is uploaded to local and coludinary...we've now our url also
-    const uploadLocalPath= await uploadToCloudinary(coverimageLocal);
+    const uploadLocalPath= await uploadImageToCloudinary(coverimageLocal);
     if(!uploadLocalPath.url){
         throw new ApiErrors(400,"file upload issue");
     }
@@ -431,12 +422,14 @@ const getUserSubscriptionDetails=async (req,res)=>{
    //*Advanced
    //below "channel" variable will store array which is returned by "aggregate()"
    const channel=await userdetail.aggregate([
+    
     //1st pipeline
     {
     $match:{
         username:username?.toLowerCase()//will get only "one" object as we're matching channel username 
     }
    },
+
     //2nd pipeline
    {
     $lookup:{
@@ -446,6 +439,7 @@ const getUserSubscriptionDetails=async (req,res)=>{
         as:"subscribers"
     }
    },
+
     //3rd pipeline
 {
     $lookup:{
@@ -455,7 +449,8 @@ const getUserSubscriptionDetails=async (req,res)=>{
         as:"subscribedTo"//to whom the channel has followed, like-->I followed his channel and he followed to how many channel
     }
 },
- //4th pipeline
+
+//4th pipeline
 //adding two extra fields from subscription model and having the count in the "user" model by aggregation.
 {
     $addFields:{
@@ -476,6 +471,7 @@ const getUserSubscriptionDetails=async (req,res)=>{
         }
     }
 },
+
 //5th pipeline
 {
     $project:{//which fields i want to show to reduce network traffic

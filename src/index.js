@@ -1,3 +1,5 @@
+//for database connect
+
 import { app } from "./app.js";
 import { config } from "dotenv";//if .env placed in root folder(in this case) then only env varialbles can be accssed through loading "config()" this
 //if not then --> import dotenv from 'dotenv'
@@ -11,7 +13,7 @@ connectDB().then(()=>{
         throw error;
     })
     app.listen(process.env.PORT,()=>{
-        console.log(`http://localhost:${process.env.PORT || 3000}`)
+        console.log(`http://localhost:${process.env.PORT}`)
     })
 }).catch((error)=>{
     console.log("error",error)

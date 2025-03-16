@@ -2,14 +2,9 @@ import mongoose, { Schema } from "mongoose";
 import mongooseAggregatePaginate from "mongoose-aggregate-paginate-v2"; //this helps in aggregate pipeline writing and helps to show data in multiple data
 
 const videoschema=new Schema({
-    videofile:{
+    video:{
         type:String,
         required:true
-    },
-    thubmnail:{
-        type:String,//cloudnary url
-        required:true
-
     },
     title:{
         type:String,
@@ -23,7 +18,6 @@ const videoschema=new Schema({
     },
     Duration:{
         type:Number,//from cloudnary feature
-        required:true
 
     },
     view:{

@@ -13,14 +13,12 @@ const verifyJWT = async(req,res,next)=>{
         const decodedToken= jwt.verify(token,process.env.SECRET_ACCESS_TOKEN)
         const user=await userdetail.findById(decodedToken?._id).select("-password -refreshToken")
         if(!user){
-    
             throw new ApiErrors(400,"Access token error");
-    
         }
         req.user=user;
         next();//it is used to pass power to next process
     }catch(err){
-        throw new ApiErrors(400,"error")
+        throw new ApiErrors(400,"you should be logged in first")
     }
    
 } 

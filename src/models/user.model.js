@@ -63,6 +63,7 @@ userschema.pre('save',async function(next){//the "()=>{ }" is not used here as "
 userschema.methods.isPasswordRight=async function(password) {
     return await bcrypt.compare(password,this.password);//*"password" is user given and "this.password" is saved in mongoDB
 }
+
 userschema.methods.generateAccessToken= function() {
     return jwt.sign({
         _id:this._id,//from mongoDB
@@ -77,7 +78,7 @@ userschema.methods.generateAccessToken= function() {
 }
 
 userschema.methods.generateRefreshToken= function() {
-    return jwt.sign({
+    return jwt.sign({//jwt.sign is used to create json web tokens
         _id:this._id,//from mongoDB
     },
     process.env.SECRET_ACCESS_TOKEN,
