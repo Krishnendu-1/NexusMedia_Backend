@@ -1,10 +1,10 @@
-## 🚀 NexusMedia - Integrated Content Management Backend
+## 🚀 NexusMedia - Scalable Multimedia Content Hosting Platform
 
 ![image](https://github.com/user-attachments/assets/03cbd841-1bdc-44c2-81fa-794551c1b8ad)
 
 ## Overview
 
-NexusMedia is a robust cutting-edge **Backend** project designed with Node.js, Express, and MongoDB to provide developers and content platforms with a powerful, flexible, and secure infrastructure for building sophisticated digital experiences. It provides a RESTful API for user management, including registration, login, and profile management, along with features such as JWT-based authentication, image uploads to Cloudinary, and user subscriptions.
+NexusMedia is a robust cutting-edge **Backend** project designed with Node.js, Express, and MongoDB to provide developers and content platforms with a powerful, flexible, and secure infrastructure for building sophisticated digital experiences. It provides a RESTful API for user management, including registration, login, and profile management, along with features such as JWT-based authentication, video and image uploads to Cloudinary, and user subscriptions, likes, playlist and many more similar to **Youtube**.
 
 Tagline: *Bridging Digital Experiences*
 
