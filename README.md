@@ -174,6 +174,12 @@ The server will be running on http://localhost:3000 (or the port specified in yo
 **Refresh Access Token**
 - POST `/api/users/refreshAccessToken`
   - Refreshes the access token using the refresh token.
+**Video Upload**
+- POST `/api/users/videoUpload`
+  - Video uploading feature to cloudinary if logged in.
+**Get all videos**
+- GET `/api/users/getVideos`
+  - Get all videos uploaded by a particular user.
     
 **Update Password**
 - POST `/api/users/passwordUpdate`
