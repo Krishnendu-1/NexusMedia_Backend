@@ -1,11 +1,12 @@
 {
   "name": "megaproject",
   "version": "1.0.0",
-  "description": "full stack web application using mern stack",
+  "description": "NexusMedia - backend content managenment",
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "start": "node src/index.js"
   },
   "keywords": [
     "javascript",

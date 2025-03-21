@@ -21,13 +21,14 @@ app.use(cookieParser());//crud operation on cookie
 
 //* importing "router" can be imported like that in case of "default" exporting*/
 import userRouter  from "./routes/user.routes.js";
-
+import HealthCheckrouter from './routes/healthCheck.routes.js';
 //routes declaration
 //**we can't use app.get() since routes are in different file, this can be used only if "controller" and "routes" written in same file*/
 
 app.use('/api/users', userRouter);//-->whenever this "/users" gets there "router" controller activates
 //*the URL might look like--> http://localhost:5000/api/users/register or http://localhost:5000/users/login ...like that
 
+app.use('/api/healthcheck',HealthCheckrouter);//for healthchdeck purpose
 app.use((req, res, next) => {
     res.status(404).json(`Route not found: ${req.originalUrl}`);
 })

@@ -13,7 +13,7 @@ import { uploadImage,uploadVideo } from "../middlewares/multer.middleware.js";
 import { verifyJWT } from "../middlewares/auth.middleware.js";
 import { refreshtheAccesstoken } from "../controllers/Register.controller.js";
 import { videoControlToUpload,getVideos } from "../controllers/video.controller.js";
-
+import { tweetUpload } from "../controllers/tweet.controller.js";
 const router = Router();
 
 router.post('/register', 
@@ -56,6 +56,11 @@ router.post('/videoUpload', verifyJWT,
     videoControlToUpload
 )
 router.get('/getVideo',verifyJWT,getVideos);
+
+
+router.post('/tweetUpload',verifyJWT,
+    tweetUpload
+);
 
 //just for checking
 console.log('User routes loaded');
